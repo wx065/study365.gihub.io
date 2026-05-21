@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ordinary, Yet Extraordinary</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 🔹 首頁大圖 */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url("First.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* 🔹 漢堡按鈕 */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* 🔹 側邊選單 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: #333;
+    color: white;
+    padding: 20px;
+    transition: 0.3s;
+    overflow-y: auto;
+}
+
+/* 打開狀態 */
+.sidebar.active {
+    right: 0;
+}
+
+/* 🔹 選單樣式 */
+.menu-item {
+    margin: 15px 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.submenu {
+    margin-left: 15px;
+    display: none;
+}
+
+.submenu div {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* 展開 */
+.show {
+    display: block;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ☰ 漢堡按鈕 -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- 🔹 側邊欄 -->
+<div class="sidebar" id="sidebar">
+
+    <div class="menu-item" onclick="toggleSub(this)">
+        高中介紹
+        <div class="submenu">
+            <div>分數計算</div>
+            <div>官網整理</div>
+            <div>學長姐經驗</div>
+            <div>學校比較</div>
+        </div>
+    </div>
+
+    <div class="menu-item" onclick="toggleSub(this)">
+        高中經驗
+        <div class="submenu">
+            <div>人際</div>
+            <div>課業</div>
+            <div>老師</div>
+            <div>心態</div>
+        </div>
+    </div>
+
+    <div class="menu-item" onclick="toggleSub(this)">
+        升學管道
+        <div class="submenu">
+            <div>科學班</div>
+            <div>資優班</div>
+            <div>特招</div>
+            <div>免試</div>
+        </div>
+    </div>
+
+    <div class="menu-item" onclick="toggleSub(this)">
+        學習筆記
+        <div class="submenu">
+            <div>各科方法</div>
+            <div>記憶技巧</div>
+            <div>時間管理</div>
+            <div>考試技巧</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 🔹 首頁大圖 -->
+<div class="hero"></div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+function toggleSub(element) {
+    let submenu = element.querySelector(".submenu");
+    submenu.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
